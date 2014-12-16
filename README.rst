@@ -1,5 +1,5 @@
-aldryn-boilerplate
-==================
+aldryn-boilerplates
+===================
 
 
 Allows re-usable apps to provide separate sets of templates and static files for different
@@ -18,15 +18,21 @@ Boilerplate (``aldryn-boilerplate-standard``), just place them in
 ``templates_for_boilerplatess/aldryn-boilerplate-standard/`` and
 ``static_for_boilerplatess/aldryn-boilerplate-standard/``.
 
+.. hint::
+    don't forget to add ``templates_for_boilerplatess`` and ``static_for_boilerplatess`` to
+    ``Manifest.in``, alongside ``static`` and ``templates`` when creating python
+    packages.
+
 
 Installation
 ------------
 
-.. Note:: aldryn-boilerplate comes pre-installed in Aldryn Projects
+.. note::
+    aldryn-boilerplates comes pre-installed in Aldryn Projects
 
 ::
 
-    pip install aldryn-boilerplate
+    pip install aldryn-boilerplates
 
 
 Configuration
@@ -36,26 +42,26 @@ Configuration
 
     INSTALLED_APPS = [
         ...
-        'aldryn_boilerplate',
+        'aldryn_boilerplates',
         ...
     ]
 
     CONTEXT_PROCESSORS = [
         ...
-        'aldryn_boilerplate.context_processors.boilerplate',
+        'aldryn_boilerplates.context_processors.boilerplate',
     ]
 
     STATICFILES_FINDERS = [
         'django.contrib.staticfiles.finders.FileSystemFinder',
         # important! place right before django.contrib.staticfiles.finders.AppDirectoriesFinder
-        'aldryn_boilerplate.staticfile_finders.AppDirectoriesFinder',
+        'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     ]
 
     TEMPLATE_LOADERS = [
         'django.template.loaders.filesystem.Loader',
         # important! place right before django.template.loaders.app_directories.Loader
-        'aldryn_boilerplate.template_loaders.AppDirectoriesLoader',
+        'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
         'django.template.loaders.app_directories.Loader',
     ]
 
