@@ -13,22 +13,28 @@ add or override templates in ``templates_for_boilerplates/my-boilerplate-name/``
 ``static_for_boilerplates/my-boilerplate-name/`` that are specific to support a certain
 boilerplate.
 
-So if you want to provide a set of templates with your app that works with the Standard Aldryn
-Boilerplate (``aldryn-boilerplate-standard``), just place them in
-``templates_for_boilerplatess/aldryn-boilerplate-standard/`` and
-``static_for_boilerplatess/aldryn-boilerplate-standard/``.
+So if you want to provide a set of templates with your app that works with the
+Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_), just place them in
+``templates_for_boilerplatess/standard/`` and
+``static_for_boilerplatess/standard/``.
 
 .. hint::
     don't forget to add ``templates_for_boilerplatess`` and ``static_for_boilerplatess`` to
     ``Manifest.in``, alongside ``static`` and ``templates`` when creating python
     packages.
 
+.. note::
+    The convention is to prefix the github repository name with ``aldryn-boilerplate-``. Your
+    boilerplate could be called something like ``aldryn-boilerplate-mycompany-awesome``. For the
+    directory where templates and staticfiles are placed, the prefix can be left out:
+    ``myapp/templates_for_boilerplates/mycompany-awesome`` and
+    ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'``.
 
 Installation
 ------------
 
 .. note::
-    aldryn-boilerplates comes pre-installed in Aldryn Projects
+    aldryn-boilerplates comes pre-installed on the Aldryn Platform
 
 ::
 
@@ -67,6 +73,7 @@ Configuration
 
 Now set the name of the boilerplate you want to use in your project::
 
-    ALDRYN_BOILERPLATE_NAME = 'aldryn-boilerplate-standard'
+    ALDRYN_BOILERPLATE_NAME = 'standard'
 
 
+.. _aldryn-boilerplate-standard: https://github.com/aldryn/aldryn-boilerplate-standard
