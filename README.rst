@@ -9,18 +9,20 @@ a certain way to organise blocks in django templates and can have naming convent
 defines a css/js framework and comes with styling. Sort of like a "theme".
 
 Regular files in ``templates`` and ``static`` will be discovered as usual. Additonally you can
-add or override templates in ``templates_for_boilerplatess/my-boilerplate-name/`` and
+add or override templates in ``templates_for_boilerplates/my-boilerplate-name/`` and
 ``static_for_boilerplates/my-boilerplate-name/`` that are specific to support a certain
 boilerplate.
 
-So if you want to provide a set of templates with your app that works with
-``aldryn-default-boilerplate``, just place them in
-``templates_for_boilerplatess/aldryn-default-boilerplate/`` and
-``static_for_boilerplatess/aldryn-default-boilerplate/``
+So if you want to provide a set of templates with your app that works with the Standard Aldryn
+Boilerplate (``aldryn-boilerplate-standard``), just place them in
+``templates_for_boilerplatess/aldryn-boilerplate-standard/`` and
+``static_for_boilerplatess/aldryn-boilerplate-standard/``.
 
 
 Installation
 ------------
+
+.. Note:: aldryn-boilerplate comes pre-installed in Aldryn Projects
 
 ::
 
@@ -59,6 +61,6 @@ Configuration
 
 Now set the name of the boilerplate you want to use in your project::
 
-    ALDRYN_BOILERPLATE_NAME = 'aldryn-default-boilerplate'
+    ALDRYN_BOILERPLATE_NAME = 'aldryn-boilerplate-standard'
 
 
