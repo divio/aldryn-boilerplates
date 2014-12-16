@@ -1,0 +1,1 @@
+test.txt file in test-boilerplate static directory

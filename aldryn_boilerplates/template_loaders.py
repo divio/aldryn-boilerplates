@@ -3,6 +3,7 @@ from .conf import settings
 import django.template.loaders.app_directories
 from django.utils._os import safe_join
 
+
 boilerplate_app_template_dirs = tuple([
     safe_join(
         '{}{}'.format(template_dir, '_for_boilerplates'),

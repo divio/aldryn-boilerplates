@@ -3,6 +3,6 @@ from __future__ import unicode_literals, absolute_import
 from django.apps import AppConfig
 
 
-class AldrynBoilerplateConfig(AppConfig):
-    name = 'aldryn_boilerplate'
-    verbose_name = "Aldryn Boilerplate"
+class AldrynBoilerplatesConfig(AppConfig):
+    name = 'aldryn_boilerplates'
+    verbose_name = "Aldryn Boilerplates"
