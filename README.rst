@@ -40,7 +40,8 @@ Installation
 ------------
 
 .. note::
-    aldryn-boilerplates comes pre-installed on the Aldryn Platform
+    aldryn-boilerplates comes pre-installed on the Aldryn Platform and
+    ``ALDRYN_BOILERPLATE_NAME`` is set automatically. 
 
 ::
 
