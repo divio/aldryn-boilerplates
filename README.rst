@@ -1,6 +1,12 @@
 aldryn-boilerplates
 ===================
 
+.. image:: https://travis-ci.org/aldryn/aldryn-boilerplates.svg?branch=develop
+    :target: https://travis-ci.org/aldryn/aldryn-boilerplates
+
+.. image:: https://img.shields.io/coveralls/aldryn/aldryn-boilerplates.svg
+  :target: https://coveralls.io/r/aldryn/aldryn-boilerplates
+
 
 Allows re-usable apps to provide separate sets of templates and static files for different
 boilerplates.
