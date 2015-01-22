@@ -59,7 +59,7 @@ Configuration
         ...
     ]
 
-    CONTEXT_PROCESSORS = [
+    TEMPLATE_CONTEXT_PROCESSORS = [
         ...
         'aldryn_boilerplates.context_processors.boilerplate',
     ]
