@@ -1,3 +1,9 @@
+0.5 (2014-12-28)
+----------------
+
+* fix template discovery for apps without a “templates” folder
+* more tests
+
 0.4 (2014-12-28)
 ----------------
 
