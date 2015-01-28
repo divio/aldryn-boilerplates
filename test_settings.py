@@ -3,6 +3,7 @@ HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         'aldryn_boilerplates',
         'aldryn_boilerplates.test_helpers.testapp',
+        'aldryn_boilerplates.test_helpers.testapp_no_default',
     ],
     'CONTEXT_PROCESSORS': [
         'aldryn_boilerplates.context_processors.boilerplate',
