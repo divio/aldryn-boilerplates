@@ -2,3 +2,5 @@ djangocms-helper
 pysqlite
 pytz
 coverage
+djangocms-admin-style
+django-cms
