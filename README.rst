@@ -20,7 +20,7 @@ add or override templates in ``templates_for_boilerplates/my-boilerplate-name/``
 boilerplate.
 
 So if you want to provide a set of templates with your app that works with the
-Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_), just place them in
+Standard Aldryn Boilerplate (`aldryn-boilerplate-bootstrap3`_), just place them in
 ``templates_for_boilerplatess/standard/`` and
 ``static_for_boilerplatess/standard/``.
 
@@ -81,7 +81,7 @@ Configuration
 
 Now set the name of the boilerplate you want to use in your project::
 
-    ALDRYN_BOILERPLATE_NAME = 'standard'
+    ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
 
 
 
@@ -93,8 +93,8 @@ The recommended approach is to add a dependency to aldryn-boilerplates and to mo
 ``templates``). If you're in the process of re-factoring your existing templates with something
 new, put them into the ``legacy`` boilerplate folder and set ``ALDRYN_BOILERPLATE_NAME='legacy'``
 on projects that are still using the old templates.
-The new and shiny project can then use ``ALDRYN_BOILERPLATE_NAME='standard'`` to use the new
-Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_). Or any other
+The new and shiny project can then use ``ALDRYN_BOILERPLATE_NAME='bootstrap3'`` to use the new
+Aldryn Bootstrap Boilerplate (`aldryn-boilerplate-bootstrap3`_). Or any other
 boilerplate for that matter.
 
 Removing ``static`` and ``templates`` has the benefit of removing likely deprecated templates
@@ -102,4 +102,4 @@ from the very prominent location, that will confuse newcomers. It also prevents 
 templates and static files messing up your setup.
 
 
-.. _aldryn-boilerplate-standard: https://github.com/aldryn/aldryn-boilerplate-standard
+.. _aldryn-boilerplate-bootstrap3: https://github.com/aldryn/aldryn-boilerplate-standard
