@@ -36,6 +36,7 @@ Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_), just place them in
     ``myapp/templates_for_boilerplates/mycompany-awesome`` and
     ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'``.
 
+
 Installation
 ------------
 
@@ -81,6 +82,24 @@ Configuration
 Now set the name of the boilerplate you want to use in your project::
 
     ALDRYN_BOILERPLATE_NAME = 'standard'
+
+
+
+Adding aldryn-boilerplate support to existing packages
+------------------------------------------------------
+
+The recommended approach is to add a dependency to aldryn-boilerplates and to move existing
+``static`` and ``template`` files to a boilerplate folder (completely remove ``static`` and
+``templates``). If you're in the process of re-factoring your existing templates with something
+new, put them into the ``legacy`` boilerplate folder and set ``ALDRYN_BOILERPLATE_NAME='legacy'``
+on projects that are still using the old templates.
+The new and shiny project can then use ``ALDRYN_BOILERPLATE_NAME='standard'`` to use the new
+Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_). Or any other
+boilerplate for that matter.
+
+Removing ``static`` and ``templates`` has the benefit of removing likely deprecated templates
+from the very prominent location, that will confuse newcomers. It also prevents having not-relevant
+templates and static files messing up your setup.
 
 
 .. _aldryn-boilerplate-standard: https://github.com/aldryn/aldryn-boilerplate-standard
