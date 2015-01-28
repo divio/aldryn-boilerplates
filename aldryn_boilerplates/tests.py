@@ -59,10 +59,20 @@ class AldrynBoilerplatesTemplatesTestCase(TestCase):
             in render_to_string('test-only-in-boilerplate.html')
         )
 
-    # @override_settings(ALDRYN_BOILERPLATE_NAME=None)
-    # def test_does_not_load_from_boilerplate_if_no_boilerplate_name_set(self):
-    #     print render_to_string('test.html')
-    #     self.assertTrue(
-    #         'test.html template in regular template directory'
-    #         in render_to_string('test.html')
-    #     )
+    @override_settings(ALDRYN_BOILERPLATE_NAME=None)
+    def test_does_not_load_from_boilerplate_if_no_boilerplate_name_set(self):
+        from . import template_loaders
+        template_loaders.clear_cache()
+        self.assertTrue(
+            'test.html template in regular template directory'
+            in render_to_string('test.html')
+        )
+
+    @override_settings(ALDRYN_BOILERPLATE_NAME='other-test-boilerplate')
+    def test_loads_from_other_boilerplate_folder(self):
+        from . import template_loaders
+        template_loaders.clear_cache()
+        self.assertTrue(
+            'test.html template in other-test-boilerplate static directory'
+            in render_to_string('test.html')
+        )
