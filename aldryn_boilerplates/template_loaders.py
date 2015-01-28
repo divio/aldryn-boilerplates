@@ -4,20 +4,32 @@ import django.template.loaders.app_directories
 from django.utils._os import safe_join
 
 
-boilerplate_app_template_dirs = tuple([
-    safe_join(
-        '{}{}'.format(template_dir, '_for_boilerplates'),
-        settings.ALDRYN_BOILERPLATE_NAME,
-    )
-    for template_dir
-    in django.template.loaders.app_directories.app_template_dirs
-])
+_cache = None
+
+
+def clear_cache():
+    global _cache
+    _cache = None
+
+
+def _populate_cache():
+    global _cache
+    _cache = tuple([
+        safe_join(
+            '{}{}'.format(template_dir, '_for_boilerplates'),
+            settings.ALDRYN_BOILERPLATE_NAME,
+        )
+        for template_dir
+        in django.template.loaders.app_directories.app_template_dirs
+    ])
 
 
 def _get_boilerplate_app_template_dirs(template_dirs):
     if template_dirs is not None:
         return template_dirs
-    return boilerplate_app_template_dirs
+    if _cache is None:
+        _populate_cache()
+    return _cache
 
 
 class AppDirectoriesLoader(django.template.loaders.app_directories.Loader):
