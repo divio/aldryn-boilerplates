@@ -29,6 +29,11 @@ class AldrynBoilerplatesStaticfilesTestCase(TestCase):
         with open(finders.find('test-only-in-boilerplate.txt')) as f:
             self.assertTrue('test-only-in-boilerplate.txt' in f.read())
 
+    def test_can_find_static_file_in_app_that_does_not_have_default_static_dir(self):
+        with open(finders.find('no_default_static_folder_app.txt')) as f:
+            self.assertTrue(
+                'static file in an app that does not have a default "static" folder' in f.read())
+
     # @override_settings(ALDRYN_BOILERPLATE_NAME='something-else')
     # def test_does_not_load_from_boilerplate_if_no_boilerplate_name_set(self):
     #     safe_reload('aldryn_boilerplates.staticfile_finders')
@@ -57,6 +62,12 @@ class AldrynBoilerplatesTemplatesTestCase(TestCase):
         self.assertTrue(
             'test-only-in-boilerplate.html'
             in render_to_string('test-only-in-boilerplate.html')
+        )
+
+    def test_can_find_template_in_app_that_does_not_have_default_templates_dir(self):
+        self.assertTrue(
+            'template in an app that does not have a default "templates" folder'
+            in render_to_string('no_default_templates_folder_app.html')
         )
 
     @override_settings(ALDRYN_BOILERPLATE_NAME=None)

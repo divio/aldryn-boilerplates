@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 from .conf import settings
 import django.template.loaders.app_directories
+from django.core.exceptions import ImproperlyConfigured
+from django.utils.importlib import import_module
+from django.utils import six
 from django.utils._os import safe_join
+
+import os
+import sys
 
 
 _cache = None
@@ -14,14 +20,32 @@ def clear_cache():
 
 def _populate_cache():
     global _cache
-    _cache = tuple([
-        safe_join(
-            '{}{}'.format(template_dir, '_for_boilerplates'),
-            settings.ALDRYN_BOILERPLATE_NAME,
-        )
-        for template_dir
-        in django.template.loaders.app_directories.app_template_dirs
-    ])
+    # copy of django.template.loaders.app_directories.app_template_dirs from Django 1.6.10
+    # we need our own version, because otherwise it won't work for apps that don't have a
+    # plain ``templates`` folder.
+
+    # At compile time, cache the directories to search.
+    if six.PY2:
+        fs_encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+    app_template_dirs = []
+    for app in settings.INSTALLED_APPS:
+        try:
+            mod = import_module(app)
+        except ImportError as e:
+            raise ImproperlyConfigured('ImportError %s: %s' % (app, e.args[0]))
+        template_dir = safe_join(os.path.abspath(os.path.join(
+                os.path.dirname(mod.__file__),
+                'templates_for_boilerplates',
+                '{}'.format(settings.ALDRYN_BOILERPLATE_NAME),
+        )))
+        if os.path.isdir(template_dir):
+            if six.PY2:
+                template_dir = template_dir.decode(fs_encoding)
+            app_template_dirs.append(template_dir)
+
+    # It won't change, so convert it to a tuple to save memory.
+    app_template_dirs = tuple(app_template_dirs)
+    _cache = app_template_dirs
 
 
 def _get_boilerplate_app_template_dirs(template_dirs):

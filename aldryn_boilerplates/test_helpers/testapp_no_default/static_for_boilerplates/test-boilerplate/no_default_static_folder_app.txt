@@ -1,0 +1,1 @@
+static file in an app that does not have a default "static" folder
