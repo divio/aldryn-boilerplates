@@ -1,0 +1,9 @@
+include LICENSE.txt
+include README.rst
+include HISTORY.rst
+recursive-include aldryn_boilerplates/test_helpers/testapp/static *
+recursive-include aldryn_boilerplates/test_helpers/testapp/templates *
+recursive-include aldryn_boilerplates/test_helpers/testapp/boilerplates *
+recursive-include aldryn_boilerplates/test_helpers/testapp_no_default/boilerplates *
+recursive-exclude * *.pyc
+recursive-exclude * .DS_Store
