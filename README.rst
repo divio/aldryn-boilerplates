@@ -15,26 +15,23 @@ a certain way to organise blocks in django templates and can have naming convent
 defines a css/js framework and comes with styling. Sort of like a "theme".
 
 Regular files in ``templates`` and ``static`` will be discovered as usual. Additonally you can
-add or override templates in ``templates_for_boilerplates/my-boilerplate-name/`` and
-``static_for_boilerplates/my-boilerplate-name/`` that are specific to support a certain
+add or override templates in ``boilerplates/my-boilerplate-name/templates/`` and
+``boilerplates/my-boilerplate-name/static/`` that are specific to support a certain
 boilerplate.
 
 So if you want to provide a set of templates with your app that works with the
-Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_), just place them in
-``templates_for_boilerplatess/standard/`` and
-``static_for_boilerplatess/standard/``.
+Standard Aldryn Boilerplate (`aldryn-boilerplate-bootstrap3`_), just place them in
+``boilerplatess/bootstrap3/templates/`` and
+``boilerplatess/bootstrap3/static/``.
 
 .. hint::
-    don't forget to add ``templates_for_boilerplatess`` and ``static_for_boilerplatess`` to
-    ``Manifest.in``, alongside ``static`` and ``templates`` when creating python
-    packages.
+    don't forget to add ``boilerplates`` to ``Manifest.in``, alongside ``static`` and ``templates``
+    when creating python packages.
 
 .. note::
     The convention is to prefix the github repository name with ``aldryn-boilerplate-``. Your
-    boilerplate could be called something like ``aldryn-boilerplate-mycompany-awesome``. For the
-    directory where templates and staticfiles are placed, the prefix can be left out:
-    ``myapp/templates_for_boilerplates/mycompany-awesome`` and
-    ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'``.
+    boilerplate could be called something like ``aldryn-boilerplate-mycompany-awesome``. To use it
+    in a project, you'd set ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'``.
 
 
 Installation
@@ -81,7 +78,7 @@ Configuration
 
 Now set the name of the boilerplate you want to use in your project::
 
-    ALDRYN_BOILERPLATE_NAME = 'standard'
+    ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
 
 
 
@@ -93,8 +90,8 @@ The recommended approach is to add a dependency to aldryn-boilerplates and to mo
 ``templates``). If you're in the process of re-factoring your existing templates with something
 new, put them into the ``legacy`` boilerplate folder and set ``ALDRYN_BOILERPLATE_NAME='legacy'``
 on projects that are still using the old templates.
-The new and shiny project can then use ``ALDRYN_BOILERPLATE_NAME='standard'`` to use the new
-Standard Aldryn Boilerplate (`aldryn-boilerplate-standard`_). Or any other
+The new and shiny project can then use ``ALDRYN_BOILERPLATE_NAME='bootstrap3'`` to use the new
+Aldryn Bootstrap Boilerplate (`aldryn-boilerplate-bootstrap3`_). Or any other
 boilerplate for that matter.
 
 Removing ``static`` and ``templates`` has the benefit of removing likely deprecated templates
@@ -102,4 +99,4 @@ from the very prominent location, that will confuse newcomers. It also prevents 
 templates and static files messing up your setup.
 
 
-.. _aldryn-boilerplate-standard: https://github.com/aldryn/aldryn-boilerplate-standard
+.. _aldryn-boilerplate-bootstrap3: https://github.com/aldryn/aldryn-boilerplate-standard
