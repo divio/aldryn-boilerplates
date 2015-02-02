@@ -1,3 +1,11 @@
+next
+----
+
+* new folder conventions:
+    ``templates_for_boilerplates/<my-boilerplate>`` is now ``boilerplates/<my-boilerplate>/templates``
+    
+    ``static_for_boilerplates/<my-boilerplate>`` is now ``boilerplates/<my-boilerplate>/static``
+
 0.5 (2014-12-28)
 ----------------
 

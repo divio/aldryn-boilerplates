@@ -35,8 +35,9 @@ def _populate_cache():
             raise ImproperlyConfigured('ImportError %s: %s' % (app, e.args[0]))
         template_dir = safe_join(os.path.abspath(os.path.join(
             os.path.dirname(mod.__file__),
-            'templates_for_boilerplates',
+            'boilerplates',
             '{}'.format(settings.ALDRYN_BOILERPLATE_NAME),
+            'templates',
         )))
         if os.path.isdir(template_dir):
             if six.PY2:
