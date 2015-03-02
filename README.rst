@@ -21,8 +21,8 @@ boilerplate.
 
 So if you want to provide a set of templates with your app that works with the
 Standard Aldryn Boilerplate (`aldryn-boilerplate-bootstrap3`_), just place them in
-``boilerplatess/bootstrap3/templates/`` and
-``boilerplatess/bootstrap3/static/``.
+``boilerplates/bootstrap3/templates/`` and
+``boilerplates/bootstrap3/static/``.
 
 .. hint::
     don't forget to add ``boilerplates`` to ``Manifest.in``, alongside ``static`` and ``templates``
