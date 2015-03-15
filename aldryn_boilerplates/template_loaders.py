@@ -36,7 +36,7 @@ def _populate_cache():
         template_dir = safe_join(os.path.abspath(os.path.join(
             os.path.dirname(mod.__file__),
             'boilerplates',
-            '{}'.format(settings.ALDRYN_BOILERPLATE_NAME),
+            '{0}'.format(settings.ALDRYN_BOILERPLATE_NAME),
             'templates',
         )))
         if os.path.isdir(template_dir):
