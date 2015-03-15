@@ -6,6 +6,11 @@ env:
   - TOX_ENV=py27-dj17
   - TOX_ENV=pep8
 
+matrix:
+  include:
+    - python: 2.6
+      env: TOX_ENV=py26-dj16
+
 install:
   - pip install tox coveralls
 
