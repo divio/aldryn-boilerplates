@@ -8,7 +8,7 @@ from django.utils.datastructures import SortedDict
 def _get_boilerplate_source_dir(boilerplate_name):
     if boilerplate_name is None:
         return 'static'
-    return 'boilerplates/{}/static'.format(settings.ALDRYN_BOILERPLATE_NAME)
+    return 'boilerplates/{0}/static'.format(settings.ALDRYN_BOILERPLATE_NAME)
 
 
 class BoilerplateAppStaticStorage(django.contrib.staticfiles.storage.AppStaticStorage):
