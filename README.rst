@@ -31,7 +31,12 @@ Standard Aldryn Boilerplate (`aldryn-boilerplate-bootstrap3`_), just place them 
 .. note::
     The convention is to prefix the github repository name with ``aldryn-boilerplate-``. Your
     boilerplate could be called something like ``aldryn-boilerplate-mycompany-awesome``. To use it
-    in a project, you'd set ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'``.
+    in a project, you'd set ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'`` and put templates
+    and static files into ``boilerplates/mycompany-awesome/`` in Addons.
+    ``ALDRYN_BOILERPLATE_NAME`` is set automatically on Aldryn based on
+    ``"identifier": "mycompany-awesome"`` in ``boilerplate.json`` when submitting a boilerplate to
+    aldryn.
+
 
 
 Installation
