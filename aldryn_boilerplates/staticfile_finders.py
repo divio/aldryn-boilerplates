@@ -11,7 +11,7 @@ def _get_boilerplate_source_dir(boilerplate_name):
     return 'boilerplates/{0}/static'.format(settings.ALDRYN_BOILERPLATE_NAME)
 
 
-class BoilerplateAppStaticStorage(django.contrib.staticfiles.storage.AppStaticStorage):
+class BoilerplateAppStaticStorage(django.contrib.staticfiles.storage.FileSystemStorage):
     """
     A file system storage backend that takes an app module and works
     for the ``boilerplates/<my-boilerplate-name>/static`` directory inside the app.
