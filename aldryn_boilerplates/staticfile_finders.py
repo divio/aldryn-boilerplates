@@ -3,7 +3,13 @@ import django.contrib.staticfiles.finders
 import django.contrib.staticfiles.storage
 from .conf import settings
 from django.utils.datastructures import SortedDict
-from django.core.files.storage import FileSystemStorage
+try:
+    # django 1.6
+    from django.contrib.staticfiles.storage import AppStaticStorage as AldrynStaticStorage
+except:
+    # django 1.7
+    from django.core.files.storage import FileSystemStorage as AldrynStaticStorage
+
 
 def _get_boilerplate_source_dir(boilerplate_name):
     if boilerplate_name is None:
@@ -11,8 +17,14 @@ def _get_boilerplate_source_dir(boilerplate_name):
     return 'boilerplates/{0}/static'.format(boilerplate_name)
 
 
+class AppStaticStorage(AldrynStaticStorage):
+    # this will work for Django 1.6
+    source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
+
+
 class AppDirectoriesFinder(django.contrib.staticfiles.finders.AppDirectoriesFinder):
-    storage_class = FileSystemStorage
+    storage_class = AppStaticStorage
+    # this will work for Django 1.7
     source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
     
     def __init__(self, apps=None, *args, **kwargs):
