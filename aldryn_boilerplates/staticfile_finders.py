@@ -3,25 +3,18 @@ import django.contrib.staticfiles.finders
 import django.contrib.staticfiles.storage
 from .conf import settings
 from django.utils.datastructures import SortedDict
-
+from django.core.files.storage import FileSystemStorage
 
 def _get_boilerplate_source_dir(boilerplate_name):
     if boilerplate_name is None:
         return 'static'
-    return 'boilerplates/{0}/static'.format(settings.ALDRYN_BOILERPLATE_NAME)
-
-
-class BoilerplateAppStaticStorage(django.contrib.staticfiles.storage.FileSystemStorage):
-    """
-    A file system storage backend that takes an app module and works
-    for the ``boilerplates/<my-boilerplate-name>/static`` directory inside the app.
-    """
-    source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
+    return 'boilerplates/{0}/static'.format(boilerplate_name)
 
 
 class AppDirectoriesFinder(django.contrib.staticfiles.finders.AppDirectoriesFinder):
-    storage_class = BoilerplateAppStaticStorage
-
+    storage_class = FileSystemStorage
+    source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
+    
     def __init__(self, apps=None, *args, **kwargs):
         if settings.ALDRYN_BOILERPLATE_NAME is None:
             # Make this not do anything if there is no boilerplate name defined, so that the
