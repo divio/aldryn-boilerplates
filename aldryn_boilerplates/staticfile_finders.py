@@ -5,10 +5,10 @@ from .conf import settings
 from django.utils.datastructures import SortedDict
 try:
     # django 1.6
-    from django.contrib.staticfiles.storage import AppStaticStorage as AldrynStaticStorage
+    from django.contrib.staticfiles.storage import AppStaticStorage as BaseStorage
 except:
     # django 1.7
-    from django.core.files.storage import FileSystemStorage as AldrynStaticStorage
+    from django.core.files.storage import FileSystemStorage as BaseStorage
 
 
 def _get_boilerplate_source_dir(boilerplate_name):
@@ -17,13 +17,13 @@ def _get_boilerplate_source_dir(boilerplate_name):
     return 'boilerplates/{0}/static'.format(boilerplate_name)
 
 
-class AppStaticStorage(AldrynStaticStorage):
+class BoilerplateAppStaticStorage(BaseStorage):
     # this will work for Django 1.6
     source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
 
 
 class AppDirectoriesFinder(django.contrib.staticfiles.finders.AppDirectoriesFinder):
-    storage_class = AppStaticStorage
+    storage_class = BoilerplateAppStaticStorage
     # this will work for Django 1.7
     source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
     
