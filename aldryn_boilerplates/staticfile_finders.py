@@ -26,7 +26,7 @@ class AppDirectoriesFinder(django.contrib.staticfiles.finders.AppDirectoriesFind
     storage_class = BoilerplateAppStaticStorage
     # this will work for Django 1.7
     source_dir = _get_boilerplate_source_dir(settings.ALDRYN_BOILERPLATE_NAME)
-    
+
     def __init__(self, apps=None, *args, **kwargs):
         if settings.ALDRYN_BOILERPLATE_NAME is None:
             # Make this not do anything if there is no boilerplate name defined, so that the
