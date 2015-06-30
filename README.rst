@@ -1,5 +1,6 @@
+###################
 aldryn-boilerplates
-===================
+###################
 
 .. image:: https://travis-ci.org/aldryn/aldryn-boilerplates.svg?branch=develop
     :target: https://travis-ci.org/aldryn/aldryn-boilerplates
@@ -8,51 +9,86 @@ aldryn-boilerplates
   :target: https://coveralls.io/r/aldryn/aldryn-boilerplates
 
 
-Allows re-usable apps to provide separate sets of templates and static files for different
-boilerplates.
-On Aldryn a boilerplate is seen as an opinionated structure of html and css. It encourages
-a certain way to organise blocks in django templates and can have naming conventions. It usually
-defines a css/js framework and comes with styling. Sort of like a "theme".
+***********
+The concept
+***********
 
-Regular files in ``templates`` and ``static`` will be discovered as usual. Additonally you can
-add or override templates in ``boilerplates/my-boilerplate-name/templates/`` and
-``boilerplates/my-boilerplate-name/static/`` that are specific to support a certain
-boilerplate.
+Aldryn Boilerplates aims to solve a familiar Django problem. Sometimes re-usable applications need
+to provide their own templates and staticfiles, but in order to be useful, these need to commit
+themselves to particular frontend expectations - thereby obliging the adopter to override these
+files in order to adapt the application to other frontends, or create a new fork of the project
+aimed at a different frontend setup.
 
-So if you want to provide a set of templates with your app that works with the
-Standard Aldryn Boilerplate (`aldryn-boilerplate-bootstrap3`_), just place them in
-``boilerplates/bootstrap3/templates/`` and
+It's especially difficult to provide a rich and complete frontend for a re-usable application,
+because there's a conflict between creating a *useful* frontend and creating an *agnostic* one.
+
+The solution is to build in provision for different, switchable, frontend expectations into the
+re-usable application, and this is what Aldryn Boilerplates does.
+
+On the `Aldryn <http://aldryn.com>`_ platform, a *Boilerplate* is a complete set of frontend
+expectations, assumptions, opinions, conventions, frameworks, templates, static files and more - a
+standard way of working for frontend development.
+
+Many developers do in fact work with their own preferred standard sets of frontend tools and code
+for all their projects; in effect, with their own Boilerplates, even if they don't use that name.
+Aldryn Boilerplates is intended to make it easier to provide support for multiple Boilerplates in
+res-usable applications, and to switch between them.
+
+If users of a particular frontend framework or system would like to use it with a certain re-usable
+application, they now no longer need to rip out and replace the existing one, or override it at the
+project level every single time. Instead with Aldryn Boilerplates they can simply *add* the
+frontend files to the application, alongside the ones for existing supported Boilerplates.
+
+A simple setting in the project tells applications that support Aldryn Boilerplates which one to
+use.
+
+
+*************************
+Using Aldryn Boilerplates
+*************************
+
+Aldryn Boilerplates doesn't change the way regular files in ``templates`` and ``static`` are
+discovered - a re-usable application that supports Aldryn Boilerplates can also work perfectly well
+in a project that doesn't have it installed.
+
+However, to support Aldryn Boilerplates, your application should place Boilerplate-specific
+frontend files in ``boilerplates/my-boilerplate-name/templates/`` and
+``boilerplates/my-boilerplate-name/static/``.
+
+For example, to add support for the Standard Aldryn Boilerplate (`aldryn-boilerplate-bootstrap3`_)
+to your application, place the files in ``boilerplates/bootstrap3/templates/`` and
 ``boilerplates/bootstrap3/static/``.
 
 .. hint::
     don't forget to add ``boilerplates`` to ``Manifest.in``, alongside ``static`` and ``templates``
-    when creating python packages.
+    when creating Python packages.
 
 .. note::
     The convention is to prefix the github repository name with ``aldryn-boilerplate-``. Your
-    boilerplate could be called something like ``aldryn-boilerplate-mycompany-awesome``. To use it
+    Boilerplate could be called something like ``aldryn-boilerplate-mycompany-awesome``. To use it
     in a project, you'd set ``ALDRYN_BOILERPLATE_NAME = 'mycompany-awesome'`` and put templates
     and static files into ``boilerplates/mycompany-awesome/`` in Addons.
     ``ALDRYN_BOILERPLATE_NAME`` is set automatically on Aldryn based on
     ``"identifier": "mycompany-awesome"`` in ``boilerplate.json`` when submitting a boilerplate to
-    aldryn.
+    Aldryn.
 
 
-
+************
 Installation
-------------
+************
 
 .. note::
     aldryn-boilerplates comes pre-installed on the Aldryn Platform and
-    ``ALDRYN_BOILERPLATE_NAME`` is set automatically. 
+    ``ALDRYN_BOILERPLATE_NAME`` is set automatically.
 
 ::
 
     pip install aldryn-boilerplates
 
 
+*************
 Configuration
--------------
+*************
 
 ::
 
@@ -81,14 +117,14 @@ Configuration
         'django.template.loaders.app_directories.Loader',
     ]
 
-Now set the name of the boilerplate you want to use in your project::
+Now set the name of the Boilerplate you want to use in your project::
 
     ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
 
 
-
+******************************************************
 Adding aldryn-boilerplate support to existing packages
-------------------------------------------------------
+******************************************************
 
 The recommended approach is to add a dependency to aldryn-boilerplates and to move existing
 ``static`` and ``template`` files to a boilerplate folder (completely remove ``static`` and
