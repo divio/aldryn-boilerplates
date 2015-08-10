@@ -100,7 +100,7 @@ For `TEMPLATES` you need to add
 and alter `loaders` in the same way as we do it for Django versions prior
 to 1.8.
 
-**Note** that in the example bellow we are altering the default values,
+**Note** that in the example below we are altering the default values,
 so if you are using something that is custom - don't forget to add that too.
 
 Here is an example of a simple configuration:
