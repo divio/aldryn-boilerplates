@@ -92,12 +92,12 @@ Configuration for Django 1.8
 Basically configuration stays the same but you should respect changes that
 were introduced by django 1.8.
 
-Be sure to include `aldryn_boilerplates` to `INSTALLED_APPS`, adjust
-`STATICFILES_FINDERS` and finally configure `TEMPLATES`.
+Be sure to include ``aldryn_boilerplates`` to ``INSTALLED_APPS``, adjust
+``STATICFILES_FINDERS`` and finally configure ``TEMPLATES``.
 
-For `TEMPLATES` you need to add
-`aldryn_boilerplates.context_processors.boilerplate` to `context_processors`
-and alter `loaders` in the same way as we do it for Django versions prior
+For ``TEMPLATES`` you need to add
+``aldryn_boilerplates.context_processors.boilerplate`` to ``context_processors``
+and alter ``loaders`` in the same way as we do it for Django versions prior
 to 1.8.
 
 **Note** that in the example below we are altering the default values,
@@ -141,7 +141,6 @@ Here is an example of a simple configuration:
                     'django.template.loaders.filesystem.Loader',
                     'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
                     'django.template.loaders.app_directories.Loader',
-                    'django.template.loaders.eggs.Loader'
                 ],
             },
         },

@@ -54,7 +54,6 @@ elif django_version >= LooseVersion('1.8.0'):
                         'django.template.loaders.filesystem.Loader',
                         'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
                         'django.template.loaders.app_directories.Loader',
-                        'django.template.loaders.eggs.Loader'
                     ],
                 },
             },
