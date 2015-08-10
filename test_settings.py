@@ -21,3 +21,11 @@ HELPER_SETTINGS = {
     'ALDRYN_BOILERPLATE_NAME': 'test-boilerplate',
     # 'ALDRYN_BOILERPLATE_NAME': None,
 }
+
+
+def run():
+    from djangocms_helper import runner
+    runner.cms('aldryn_boilerplates')
+
+if __name__ == "__main__":
+    run()
