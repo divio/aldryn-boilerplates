@@ -1,3 +1,5 @@
+# FIXME: please use latest helper, at least after issue #46 is closed
+# https://github.com/nephila/djangocms-helper/issues/46
 djangocms-helper
 pysqlite
 pytz
