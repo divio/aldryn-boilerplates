@@ -90,6 +90,9 @@ Installation
 Configuration
 *************
 
+Django 1.6
+----------
+
 ::
 
     INSTALLED_APPS = [
@@ -122,8 +125,8 @@ Now set the name of the Boilerplate you want to use in your project::
     ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
 
 
-Configuration for Django 1.7
-----------------------------
+Django 1.7
+----------
 
 In general configuration stays the same but you should respect changes that
 were introduced by django 1.7.
@@ -183,8 +186,8 @@ Here is an example of a simple configuration:
     ]
 
 
-Configuration for Django 1.8
-----------------------------
+Django 1.8
+----------
 
 Basically configuration stays the same as ``Django 1.7`` but you should
 respect changes that were introduced by ``Django 1.8``.
