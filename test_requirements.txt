@@ -1,5 +1,4 @@
-djangocms-helper
-pysqlite
+djangocms-helper>=0.9.1
 pytz
 coverage
 djangocms-admin-style
