@@ -90,8 +90,8 @@ Installation
 Configuration
 *************
 
-Django 1.6
-----------
+Django 1.6, 1.7
+---------------
 
 ::
 
@@ -125,11 +125,13 @@ Now set the name of the Boilerplate you want to use in your project::
     ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
 
 
-Django 1.7
+Django 1.8
 ----------
 
 In general configuration stays the same but you should respect changes that
-were introduced by django 1.7.
+were introduced by django 1.8.
+In particular in Django 1.8 context processors were moved from ``django.core``
+to ``django.template``.
 
 Be sure to include ``aldryn_boilerplates`` to ``INSTALLED_APPS``, adjust
 ``STATICFILES_FINDERS`` and finally configure ``TEMPLATES``.
@@ -137,62 +139,7 @@ Be sure to include ``aldryn_boilerplates`` to ``INSTALLED_APPS``, adjust
 For ``TEMPLATES`` you need to add
 ``aldryn_boilerplates.context_processors.boilerplate`` to ``context_processors``
 and alter ``loaders`` in the same way as we do it for Django versions prior
-to 1.7.
-
-**Note** that in the example below we are altering the default values,
-so if you are using something that is custom - don't forget to add that too.
-
-Here is an example of a simple configuration:
-
-::
-
-    INSTALLED_APPS = [
-        ...
-        'aldryn_boilerplates',
-        ...
-    ]
-
-    STATICFILES_FINDERS = (
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    )
-
-    TEMPLATES = [
-        {
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'OPTIONS': {
-                'context_processors': [
-                    'django.contrib.auth.context_processors.auth',
-                    'django.contrib.messages.context_processors.messages',
-                    'django.core.context_processors.i18n',
-                    'django.core.context_processors.debug',
-                    'django.core.context_processors.request',
-                    'django.core.context_processors.media',
-                    'django.core.context_processors.csrf',
-                    'django.core.context_processors.tz',
-                    'sekizai.context_processors.sekizai',
-                    'django.core.context_processors.static',
-                    'cms.context_processors.cms_settings',
-                    'aldryn_boilerplates.context_processors.boilerplate',
-                ],
-                'loaders': [
-                    'django.template.loaders.filesystem.Loader',
-                    'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
-                    'django.template.loaders.app_directories.Loader',
-                ],
-            },
-        },
-    ]
-
-
-Django 1.8
-----------
-
-Basically configuration stays the same as ``Django 1.7`` but you should
-respect changes that were introduced by ``Django 1.8``.
-In particular in Django 1.8 context processors were moved from ``django.core``
-to ``django.template``.
+to 1.8.
 
 **Note** that in the example below we are altering the default values,
 so if you are using something that is custom - don't forget to add that too.
