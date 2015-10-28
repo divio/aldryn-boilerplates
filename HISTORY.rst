@@ -1,8 +1,15 @@
 
+x.x.x (xxxx-xx-xx)
+------------------
+
+* add Django 1.5 support
+
+
 0.7.2 (2015-08-19)
 ------------------
 
-* Adds Django 1.8 support
+* add Django 1.8 support
+
 
 0.7.1 (2015-06-18)
 ------------------
@@ -18,11 +25,13 @@
 
     ``static_for_boilerplates/<my-boilerplate>`` is now ``boilerplates/<my-boilerplate>/static``
 
+
 0.5 (2014-12-28)
 ----------------
 
 * fix template discovery for apps without a “templates” folder
 * more tests
+
 
 0.4 (2014-12-28)
 ----------------

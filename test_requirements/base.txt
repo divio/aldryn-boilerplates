@@ -1,0 +1,3 @@
+coverage
+djangocms-admin-style
+django-appconf
