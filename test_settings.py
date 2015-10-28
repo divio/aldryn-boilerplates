@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from distutils.version import LooseVersion
-from django import get_version, VERSION as DJANGO_VERSION
+from django import get_version
 
 django_version = LooseVersion(get_version())
 
@@ -21,7 +21,7 @@ HELPER_SETTINGS = {
     'ALDRYN_BOILERPLATE_NAME': 'test-boilerplate',
 }
 
-if DJANGO_VERSION < (1, 6):
+if django_version < LooseVersion('1.6'):
     HELPER_SETTINGS.update({
         'STATICFILES_FINDERS': [
             'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -60,7 +60,7 @@ def run():
     # --boilerplate option will ensure correct boilerplate settings are
     # added to settings
 
-    if DJANGO_VERSION < (1, 6):
+    if django_version < LooseVersion('1.6'):
         runner.cms('aldryn_boilerplates')
     else:
         runner.cms('aldryn_boilerplates', extra_args=['--boilerplate'])
