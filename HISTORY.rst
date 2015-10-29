@@ -1,5 +1,5 @@
 
-x.x.x (xxxx-xx-xx)
+0.7.3 (2015-10-29)
 ------------------
 
 * add Django 1.5 support
