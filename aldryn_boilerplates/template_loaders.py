@@ -2,7 +2,15 @@
 from .conf import settings
 import django.template.loaders.app_directories
 from django.core.exceptions import ImproperlyConfigured
-from django.utils.importlib import import_module
+try:
+    # Python>=2.7
+    from importlib import import_module
+except ImportError:
+    # Python==2.6
+    import warnings
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DeprecationWarning)
+        from django.utils.importlib import import_module
 from django.utils import six
 from django.utils._os import safe_join
 
