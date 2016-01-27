@@ -2,7 +2,12 @@
 import django.contrib.staticfiles.finders
 import django.contrib.staticfiles.storage
 from .conf import settings
-from django.utils.datastructures import SortedDict
+
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict import OrderedDict
+
 try:
     # django 1.6
     from django.contrib.staticfiles.storage import AppStaticStorage as BaseStorage
@@ -33,7 +38,7 @@ class AppDirectoriesFinder(django.contrib.staticfiles.finders.AppDirectoriesFind
             # staticfile finder can be in the list even if ALDRYN_BOILERPLATE_NAME is set not
             # configured.
             self.apps = []
-            self.storages = SortedDict()
+            self.storages = OrderedDict()
             super(django.contrib.staticfiles.finders.AppDirectoriesFinder, self).__init__(
                 *args, **kwargs)
         else:
