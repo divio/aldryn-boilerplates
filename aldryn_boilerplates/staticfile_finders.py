@@ -8,12 +8,7 @@ try:
 except ImportError:
     from ordereddict import OrderedDict
 
-try:
-    # django 1.6
-    from django.contrib.staticfiles.storage import AppStaticStorage as BaseStorage
-except:
-    # django 1.7
-    from django.core.files.storage import FileSystemStorage as BaseStorage
+from django.core.files.storage import FileSystemStorage as BaseStorage
 
 
 def _get_boilerplate_source_dir(boilerplate_name):

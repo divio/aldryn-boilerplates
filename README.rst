@@ -90,41 +90,6 @@ Installation
 Configuration
 *************
 
-Django 1.5 - 1.7
-----------------
-
-::
-
-    INSTALLED_APPS = [
-        ...
-        'aldryn_boilerplates',
-        ...
-    ]
-
-    TEMPLATE_CONTEXT_PROCESSORS = [
-        ...
-        'aldryn_boilerplates.context_processors.boilerplate',
-    ]
-
-    STATICFILES_FINDERS = [
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        # important! place right before django.contrib.staticfiles.finders.AppDirectoriesFinder
-        'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    ]
-
-    TEMPLATE_LOADERS = [
-        'django.template.loaders.filesystem.Loader',
-        # important! place right before django.template.loaders.app_directories.Loader
-        'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
-        'django.template.loaders.app_directories.Loader',
-    ]
-
-Now set the name of the Boilerplate you want to use in your project::
-
-    ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
-
-
 Django 1.8+
 -----------
 

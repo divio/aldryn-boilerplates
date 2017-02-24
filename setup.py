@@ -9,7 +9,7 @@ metadata = dict(re.findall("__([a-z]+)__\s*=\s*'([^']+)'", module_file))
 py26 = (2, 7, 0) > sys.version_info >= (2, 6, 0)
 
 REQUIREMENTS = [
-    'Django>=1.5,<1.9.999',
+    'Django>=1.8,<1.11',
     'YURL>=0.13',
     'django-appconf',
 ]
