@@ -5,6 +5,7 @@ sudo: false
 
 env:
   - TOX_ENV=pep8
+  - TOX_ENV=py27-dj11-cms34
   - TOX_ENV=py27-dj10-cms34
   - TOX_ENV=py27-dj19-cms33
   - TOX_ENV=py27-dj18-cms32
