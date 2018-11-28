@@ -1,4 +1,4 @@
-0.8.0 (unreleased)
+0.8.0 (2018-11-28)
 ------------------
 
 * Added Django 1.11, 2.0 and 2.1 support
