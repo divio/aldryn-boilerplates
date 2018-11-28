@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         # We don't need main app in installed apps because djangocms-helper
@@ -24,6 +23,7 @@ def run():
     # added to settings
 
     runner.cms('aldryn_boilerplates', extra_args=['--boilerplate'])
+
 
 if __name__ == "__main__":
     run()

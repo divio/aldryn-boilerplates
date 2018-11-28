@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 import django.contrib.staticfiles.finders
 import django.contrib.staticfiles.storage
-from .conf import settings
-
-try:
-    from collections import OrderedDict
-except ImportError:
-    from ordereddict import OrderedDict
-
 from django.core.files.storage import FileSystemStorage as BaseStorage
+
+from collections import OrderedDict
+
+from .conf import settings
 
 
 def _get_boilerplate_source_dir(boilerplate_name):

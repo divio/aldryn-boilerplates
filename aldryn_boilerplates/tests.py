@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
-from django.test import TestCase
-from django.test.utils import override_settings
-from django.contrib.staticfiles import finders
-from django.template.loader import render_to_string
+from __future__ import absolute_import, unicode_literals
+
 import sys
 
+from django.contrib.staticfiles import finders
+from django.template.loader import render_to_string
+from django.test import TestCase
+from django.test.utils import override_settings
 
 # Can't get dynamic settings to work, since they seem to be loaded all over the place
 # def safe_reload(mod):

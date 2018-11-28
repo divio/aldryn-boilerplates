@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
-from .conf import settings
+import os
+import sys
+from importlib import import_module
+from distutils.version import LooseVersion
+
+from django import __version__
 import django.template.loaders.app_directories
-from django.core.exceptions import ImproperlyConfigured
-try:
-    # Python>=2.7
-    from importlib import import_module
-except ImportError:
-    # Python==2.6
-    import warnings
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore", DeprecationWarning)
-        from django.utils.importlib import import_module
+from django.core.exceptions import ImproperlyConfigured, SuspiciousFileOperation
+from django.template import Origin
+from django.template.loader import get_template
 from django.utils import six
 from django.utils._os import safe_join
 
-import os
-import sys
+from .conf import settings
 
+DJANGO_VERSION = __version__
+DJANGO_20 = LooseVersion(DJANGO_VERSION) >= LooseVersion('2.0')
 
 _cache = None
 
@@ -71,11 +70,12 @@ class AppDirectoriesLoader(django.template.loaders.app_directories.Loader):
     def get_template_sources(self, template_name, template_dirs=None):
         return super(AppDirectoriesLoader, self).get_template_sources(
             template_name,
-            _get_boilerplate_app_template_dirs(template_dirs),
         )
 
     def load_template_source(self, template_name, template_dirs=None):
-        return super(AppDirectoriesLoader, self).load_template_source(
+        return super(AppDirectoriesLoader, self).get_template(
             template_name,
-            _get_boilerplate_app_template_dirs(template_dirs),
         )
+
+    def get_dirs(self, template_dirs=None):
+        return _get_boilerplate_app_template_dirs(template_dirs)
